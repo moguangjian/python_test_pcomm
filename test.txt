@@ -1,0 +1,38 @@
+this is a test.
+
+
+这是 ZMODEM 帧类型枚举，每个常量对应一个协议命令 / 帧类型。
+ZRQINIT：请求初始化
+ZRINIT：接收端初始化
+ZSINIT：发送端初始化
+ZACK：应答（成功 / 确认）
+ZFILE：文件信息（文件名、大小等）
+ZSKIP：跳过当前文件
+ZNAK：否认 / 出错
+ZABORT：中止传输
+ZFIN：结束会话
+ZRPOS：请求从指定位置续传
+ZDATA：数据帧
+ZEOF：文件结束
+ZFERR：文件错误
+ZCRC：校验和
+ZCHALLENGE：握手验证
+ZCOMPL：传输完成
+ZFREECNT：空闲 / 流量控制
+ZCOMMAND：远程命令
+ZSTDERR：错误输出
+作用：收发双方靠这些数字识别 “这一帧是干什么的”。
+2. class ZrinitFlags(IntEnum)
+这是 初始化时的能力标志位，用位掩码表示双方支持哪些功能。
+CANFDX：全双工
+CANOVIO：重叠 I/O
+CANBRK：支持中断
+CANRLE：支持 RLE 压缩
+CANLZW：支持 LZW 压缩
+CANFC32：支持 32 位 CRC
+ESCCTL：转义控制字符
+ESC8：转义 8 位数据
+作用：连接一开始，双方交换这个字节，告诉对方 “我支持哪些高级功能”。
+一句话总结
+ZType：ZMODEM 的命令字集合，控制传输流程。
+ZrinitFlags：初始化时的能力协商位，声明支持的压缩、校验、传输模式。
