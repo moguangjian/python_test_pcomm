@@ -110,7 +110,7 @@ class ZModemSender:
             
             # 开始发送
             print(f"开始发送文件: {file_path}")
-            ret = self.dll.sio_FtZmodemTx(self.port, file_path.encode('ascii'), callback, 27)
+            ret = self.dll.sio_FtZmodemTx(self.port, file_path.encode('gbk'), callback, 27)
             
             print('ret: ', ret)
             if ret >= 0:
